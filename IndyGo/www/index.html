@@ -153,7 +153,7 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 		var destination_autocomplete = new google.maps.places.Autocomplete(destination_input);
 		destination_autocomplete.bindTo('bounds', map);
 
-		function geocodeLatLng(geocoder, map, infowindow, pos) {
+		function geocodeLatLng(geocoder, map, pos, inputBox) {
 
 			geocoder.geocode({'location': pos}, function(results, status) {
 				if (status === google.maps.GeocoderStatus.OK) {
@@ -163,7 +163,7 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 						origin_place_id = results[1].place_id;
 						origin_autocomplete.getPlace();
 
-						document.getElementById('origin-input').value = results[1].formatted_address;
+						document.getElementById(inputBox).value = results[1].formatted_address;
 						//infowindow.open(map, marker);
 					} else {
 						window.alert('No results found');
@@ -233,8 +233,8 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 
 		var stats = getBikeStations(map);
 		var infoWindow = new google.maps.InfoWindow({map: map});
+        infoWindow.close();
 		var geocoder = new google.maps.Geocoder;
-		var infowindow = new google.maps.InfoWindow;
 
 		// Try HTML5 geolocation.
 		if (navigator.geolocation) {
@@ -245,10 +245,9 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 				};
 				//infoWindow.setPosition(pos);
 				map.setCenter(pos);
-
 				// SETS INPUT BOX TEXT
 				// Search for current location placeId
-				geocodeLatLng(geocoder, map, infowindow, pos);
+				geocodeLatLng(geocoder, map, pos, 'origin-input');
 
 				var closest = 99999;
 				var closeststation = 0;
@@ -280,6 +279,7 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 
 
 			}, function() {
+                infoWindow.open(map);
 				handleLocationError(true, infoWindow, map.getCenter());
 			});
 		} else {
@@ -291,7 +291,7 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 	function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 		infoWindow.setPosition(pos);
 		infoWindow.setContent(browserHasGeolocation ?
-				'Error: The Geolocation service failed.' :
+				'Error: The Geolocation service failed. Make sure you have your location turned on.' :
 				'Error: Your browser doesn\'t support geolocation.');
 	}
 
@@ -365,8 +365,8 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
         document.getElementById("map").style.height= '72%';
     }
 
-    function infoBoxDirections() {
-
+    function infoBoxDirections(pos) {
+		geocodeLatLng(geocoder, map, pos, 'destination-input');
     }
 </script>
 
