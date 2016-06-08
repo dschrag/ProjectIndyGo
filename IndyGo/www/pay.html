@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<!--
+	Spatial by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+<head>
+    <title>Pay</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <!--[if lte IE 8]>
+    <script src="js/html5shiv.js"></script><![endif]-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/skel.min.js"></script>
+    <script src="js/skel-layers.min.js"></script>
+    <script src="js/init.js"></script>
+    <noscript>
+        <link rel="stylesheet" href="css/skel.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/style-xlarge.css" />
+    </noscript>
+</head>
+<body class="landing">
+
+<!-- Header -->
+<header id="header" class="alt">
+    <nav id="nav">
+        <ul>
+            <li><a href="index.html">BikeShare</a></li>
+            <li><a href="bus.html">IndyGo</a></li>
+            <li><a href="login.html">Payment</a></li>
+        </ul>
+    </nav>
+</header>
+
+<a name="formAnchor"></a>
+<!-- One -->
+<section id="one" class="wrapper style1">
+    <div class="container 75%">
+        <div>
+            <h2>
+                <br>Pay<br><br>
+            </h2>
+            <h4>*Required Field</h4>
+            <h3 style="color: red;"><?php if (isset($_GET["errs"])){echo $_GET["errs"];}?></h3>
+            <br />
+            <blockquote>
+                <form action="confirm.html" method="post">
+                    <div class="6u 12u$(xsmall)">
+                        <input type="text" name="name" id="name" placeholder="*Name on Card">
+                        <br>
+			            <input type="text" name="crdCard" placeholder="*Card Number">
+                        <br>
+                        <input type="text" name="exp" placeholder="*Expiration Date">
+                        <br>
+                        <input type="text" name="cvv" placeholder="*CVV">
+                        <br>
+                        <input type="text" name="zip" placeholder="*Zip">
+                        <br>
+                    </div>
+                    <div class="12u$">
+                        <ul class="actions">
+                            <li><input type="submit" value="Submit!"></li>
+                        </ul>
+                    </div>
+                </form>
+            </blockquote>
+        </div>
+    </div>
+</section>
+
+<!-- Next line makes the footer -->
+<?php footer(); ?>
+
+</body>
+</html>
