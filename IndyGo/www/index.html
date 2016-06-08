@@ -108,11 +108,11 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
     <div id="stationInfor">
         <table>
             <tr>
-                <td id = "tLeft1" class="tLeft1">11<br>Bikes</td>
-                <td id="infoBx" class="tRight" colspan="2" rowspan="2"><div class="tableTitle">[INSERT TITLE VAR]</div>[INSERT ADDRESS VAR]<br>[VAR] Miles Away<br><div class="buttons"><pre><span onclick="infoBoxDirections()">Directions</span>                            <span onclick="closeInfoBox()">Close</span></pre></div></td>
+                <td id = "tLeft1" class="tLeft">11<br>Bikes</td>
+                <td id="infoBx" class="tRight" colspan="2" rowspan="2"><div class="tableTitle">[INSERT TITLE VAR]</div>[INSERT ADDRESS VAR]<br>[VAR] Miles Away<br><div class="buttons"><pre><span onclick="closeInfoBox()">Close</span>                            <span onclick="infoBoxDirections()">Directions</span></pre></div></td>
             </tr>
-            <tr>
-                <td id ="tLeft2" class="tLeft2">12<br>Empty Docks</td>
+            <tr style="border-top: rgba(0, 46, 97, 1) 2px solid;">
+                <td id ="tLeft2" class="tLeft">12<br>Empty Docks</td>
             </tr>
         </table>
     </div>
@@ -232,8 +232,6 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 		}
 
 		var stats = getBikeStations(map);
-		var infoWindow = new google.maps.InfoWindow({map: map});
-        infoWindow.close();
 		var geocoder = new google.maps.Geocoder;
 
 		// Try HTML5 geolocation.
@@ -245,6 +243,7 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 				};
 				//infoWindow.setPosition(pos);
 				map.setCenter(pos);
+
 				// SETS INPUT BOX TEXT
 				// Search for current location placeId
 				geocodeLatLng(geocoder, map, pos, 'origin-input');
@@ -279,7 +278,6 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 
 
 			}, function() {
-                infoWindow.open(map);
 				handleLocationError(true, infoWindow, map.getCenter());
 			});
 		} else {
@@ -291,7 +289,7 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 	function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 		infoWindow.setPosition(pos);
 		infoWindow.setContent(browserHasGeolocation ?
-				'Error: The Geolocation service failed. Make sure you have your location turned on.' :
+				'Error: The Geolocation service failed.' :
 				'Error: Your browser doesn\'t support geolocation.');
 	}
 
@@ -355,7 +353,7 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
     function openInfoBox(title, addr, miles, bikes, docks) {
         document.getElementById("mapContainer").style.height= '72vh';
         document.getElementById("map").style.height= '66%';
-        document.getElementById("infoBx").innerHTML = "<div class='tableTitle'>"+title+"</div>"+addr+"<br>"+"#"+" Miles Away<br><div class='buttons'><pre><span onclick='infoBoxDirections()'>Directions</span>                            <span onclick='closeInfoBox()'>Close</span></pre></div>";
+        document.getElementById("infoBx").innerHTML = "<div class='tableTitle'>"+title+"</div>"+addr+"<br>"+"#"+" Miles Away<br><div class='buttons'><pre><span onclick='closeInfoBox()'>Close</span>                            <span onclick='infoBoxDirections()'>Directions</span></pre></div>";
         document.getElementById("tLeft1").innerHTML = bikes+"<br>Bikes";
         document.getElementById("tLeft2").innerHTML = docks+"<br>Docks";
     }
