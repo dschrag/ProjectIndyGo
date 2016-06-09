@@ -733,17 +733,10 @@
 			border-top: solid 2px rgba(144, 144, 144, 0.25);
 		}
 
-        table td.tLeft1{
+        table td.tLeft{
             text-align: center;
             background-color: rgba(254, 206, 12, 1);
             color: rgba(0, 46, 97, 1);
-            font-weight: bold;
-        }
-
-        table td.tLeft2{
-            text-align: center;
-            background-color: rgba(0, 46, 97, 1);
-            color: rgba(254, 206, 12, 1);
             font-weight: bold;
         }
 
