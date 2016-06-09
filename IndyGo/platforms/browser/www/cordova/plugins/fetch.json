@@ -1,0 +1,10 @@
+{
+    "RTT-realtime-data": {
+        "source": {
+            "type": "local",
+            "path": "NetBeansProjects\\ProjectIndigo"
+        },
+        "is_top_level": true,
+        "variables": {}
+    }
+}

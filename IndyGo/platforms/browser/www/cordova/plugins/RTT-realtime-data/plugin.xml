@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="https://github.com/dschrag/IndyRTT.git"
+        id="RTT-realtime-data" version="0.2.3">
+    <name>Data</name>
+    <description>Real Time Data</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,data</keywords>
+    <js-module src="www/rtt.js" name="rtt">
+        <clobbers target="rtt" />
+    </js-module>
+    <platform name="android">
+    <config-file target="config.xml" parent="/*">
+        <feature name="getVehiclePosition">
+            <param name="android-package" value="project.indigo"/>
+        </feature>
+    </config-file>
+
+    <source-file src="src/main/java/project/indigo/ProjectIndigo.java" target-dir="src/org/apache/cordova/plugin" />
+</platform>
+</plugin>
