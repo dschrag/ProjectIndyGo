@@ -335,13 +335,14 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 				title: stations.stations[i].name,
 				station_id: stations.stations[i].station_id,
 				bikes_avail: 0,
-				docks_avail: 0
+				docks_avail: 0,
+                addr: stations.stations[i].address
 			});
 			station_array[i] = marker;
-            //console.log(stations.stations[i].address);
+            
 			google.maps.event.addListener(marker, 'click', function () {
 				getBikeStatus(this);
-                openInfoBox(this.getTitle(), stations.stations[i].address, this.getTitle(), this.bikes_avail, this.docks_avail);
+                openInfoBox(this.getTitle(), this.addr, this.getTitle(), this.bikes_avail, this.docks_avail);
                 pos = this.position;
 			});
 
