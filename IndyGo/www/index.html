@@ -6,62 +6,62 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 -->
 <html>
 <head>
-	<title>Operation Go Indy</title>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/skel.min.js"></script>
-	<script src="js/skel-layers.min.js"></script>
-	<script src="js/init.js"></script>
-	<noscript>
-		<link rel="stylesheet" href="css/skel.css" />
-		<link rel="stylesheet" href="css/style.css" />
-		<link rel="stylesheet" href="css/style-xlarge.css" />
-	</noscript>
+    <title>Operation Go Indy</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/skel.min.js"></script>
+    <script src="js/skel-layers.min.js"></script>
+    <script src="js/init.js"></script>
+    <noscript>
+        <link rel="stylesheet" href="css/skel.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/style-xlarge.css" />
+    </noscript>
 
-	<style>
-		.controls {
-			margin-top: 10px;
-			border: 1px solid transparent;
-			border-radius: 2px 0 0 2px;
-			box-sizing: border-box;
-			-moz-box-sizing: border-box;
-			height: 32px;
-			outline: none;
-			box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-		}
-
-
-		#origin-input,
-		#destination-input {
-			background-color: #fff;
-			font-family: Roboto;
-			font-size: 15px;
-			font-weight: 300;
-			margin-left: 35px;
-			text-overflow: ellipsis;
-			width: 150px;
-		}
-
-		#origin-input,
-		#destination-input {
-			background-color: #fff;
-			font-family: Roboto;
-			font-size: 15px;
-			font-weight: 300;
-			margin-left: 35px;
-			text-overflow: ellipsis;
-			width: 150px;
-		}
+    <style>
+        .controls {
+            margin-top: 10px;
+            border: 1px solid transparent;
+            border-radius: 2px 0 0 2px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            height: 32px;
+            outline: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
 
 
-		#origin-input:focus,
-		#destination-input:focus {
-			border-color: #4d90fe;
-		}
-	</style>
+        #origin-input,
+        #destination-input {
+            background-color: #fff;
+            font-family: Roboto;
+            font-size: 15px;
+            font-weight: 300;
+            margin-left: 35px;
+            text-overflow: ellipsis;
+            width: 150px;
+        }
+
+        #origin-input,
+        #destination-input {
+            background-color: #fff;
+            font-family: Roboto;
+            font-size: 15px;
+            font-weight: 300;
+            margin-left: 35px;
+            text-overflow: ellipsis;
+            width: 150px;
+        }
+
+
+        #origin-input:focus,
+        #destination-input:focus {
+            border-color: #4d90fe;
+        }
+    </style>
 </head>
 
 <body class="landing">
@@ -77,39 +77,39 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 </nav>
 </header> -->
 <header id="header" class="alt">
-	<nav id="nav">
-		<ul>
-			<li>
-				<div id="profile">
-					<h7>John Roberts</h7>
-					<p>view profile</p>
-				</div>
-				<div><img src="images/ppic.png" alt="profile pic"></div>
+    <nav id="nav">
+        <ul>
+            <li>
+                <div id="profile">
+                    <h7>John Roberts</h7>
+                    <p>view profile</p>
+                </div>
+                <div><img src="images/ppic.png" alt="profile pic"></div>
 
-				<!-- <a href="generic.html">Profile</a> -->
-			</li>
-			<li><a href="index.html">BikeShare</a></li>
-			<li><a href="bus.html">IndyGo</a></li>
-			<li><a href="login.html">Payment</a></li>
-		</ul>
-	</nav>
+                <!-- <a href="generic.html">Profile</a> -->
+            </li>
+            <li><a href="index.html">BikeShare</a></li>
+            <li><a href="bus.html">IndyGo</a></li>
+            <li><a href="login.html">Payment</a></li>
+        </ul>
+    </nav>
 </header>
 
 <!-- One -->
 
 <section id="one">
-	<div id="mapContainer" style="background-color: rgba(0,46,97, 100); height: 100vh">
-		<input id="origin-input" class="controls" type="text" placeholder="Enter an origin location">
+    <div id="mapContainer" style="background-color: rgba(0,46,97, 100); height: 100vh">
+        <input id="origin-input" class="controls" type="text" placeholder="Enter an origin location">
 
-		<input id="destination-input" class="controls" type="text" placeholder="Enter a destination location">
-		<div style="height: 75%; width: 100%; top: 6%; position: absolute; margin: auto;" class="row 200%" id="map">
-		</div>
-	</div>
+        <input id="destination-input" class="controls" type="text" placeholder="Enter a destination location">
+        <div style="height: 75%; width: 100%; top: 6%; position: absolute; margin: auto;" class="row 200%" id="map">
+        </div>
+    </div>
     <div id="stationInfor">
         <table>
             <tr>
                 <td id = "tLeft1" class="tLeft">11<br>Bikes</td>
-                <td id="infoBx" class="tRight" colspan="2" rowspan="2"><div class="tableTitle">[INSERT TITLE VAR]</div>[INSERT ADDRESS VAR]<br>[VAR] Miles Away<br><div class="buttons"><pre><span onclick="closeInfoBox()">Close</span>                            <span onclick="infoBoxDirections()">Directions</span></pre></div></td>
+                <td id="infoBx" class="tRight" colspan="2" rowspan="2"><div class="tableTitle">[INSERT TITLE VAR]</div>[INSERT ADDRESS VAR]<br><span id="dist">[VAR]</span> Miles Away<br><div class="buttons"><pre><span onclick="closeInfoBox()">Close</span>                            <span onclick="infoBoxDirections()">Directions</span></pre></div></td>
             </tr>
             <tr style="border-top: rgba(0, 46, 97, 1) 2px solid;">
                 <td id ="tLeft2" class="tLeft">12<br>Empty Docks</td>
@@ -122,13 +122,13 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 </section>
 <script type="text/javascript" src="js/gtfsparser.js"></script>
 <script>
-	// This example requires the Places library. Include the libraries=places
-	// parameter when you first load the API. For example:
-	// <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+    // This example requires the Places library. Include the libraries=places
+    // parameter when you first load the API. For example:
+    // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
-		readDropbox("https://dl.dropbox.com/s/o5ajnzozjend26q/gtfs_data.json?dl=1");
+    readDropbox("https://dl.dropbox.com/s/o5ajnzozjend26q/gtfs_data.json?dl=1");
 
-		var station_array = [];
+    var station_array = [];
     var origin_place_id = null;
     var destination_place_id = null;
     var origin_input;
@@ -145,140 +145,142 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 
     var travel_mode;
 
+    var clickedStation;
+
     function initMap() {
-		travel_mode = google.maps.TravelMode.BICYCLING;
+        travel_mode = google.maps.TravelMode.BICYCLING;
         map = new google.maps.Map(document.getElementById('map'), {
-			mapTypeControl: false,
-			center: {lat: 39.76593, lng: -86.16216},
-			zoom: 13
-		});
+            mapTypeControl: false,
+            center: {lat: 39.76593, lng: -86.16216},
+            zoom: 13
+        });
         geocoder = new google.maps.Geocoder;
 
-		directionsService = new google.maps.DirectionsService;
-		directionsDisplay = new google.maps.DirectionsRenderer;
-		directionsDisplay.setMap(map);
+        directionsService = new google.maps.DirectionsService;
+        directionsDisplay = new google.maps.DirectionsRenderer;
+        directionsDisplay.setMap(map);
 
-		origin_input = document.getElementById('origin-input');
-		destination_input = document.getElementById('destination-input');
+        origin_input = document.getElementById('origin-input');
+        destination_input = document.getElementById('destination-input');
 
-		map.controls[google.maps.ControlPosition.TOP_CENTER].push(origin_input);
-		map.controls[google.maps.ControlPosition.TOP_CENTER].push(destination_input);
+        map.controls[google.maps.ControlPosition.TOP_CENTER].push(origin_input);
+        map.controls[google.maps.ControlPosition.TOP_CENTER].push(destination_input);
 
-		origin_autocomplete = new google.maps.places.Autocomplete(origin_input);
-		origin_autocomplete.bindTo('bounds', map);
+        origin_autocomplete = new google.maps.places.Autocomplete(origin_input);
+        origin_autocomplete.bindTo('bounds', map);
 
-		destination_autocomplete = new google.maps.places.Autocomplete(destination_input);
-		destination_autocomplete.bindTo('bounds', map);
+        destination_autocomplete = new google.maps.places.Autocomplete(destination_input);
+        destination_autocomplete.bindTo('bounds', map);
 
-		function expandViewportToFitPlace(map, place) {
-			if (place.geometry.viewport) {
-				map.fitBounds(place.geometry.viewport);
-			} else {
-				map.setCenter(place.geometry.location);
-				map.setZoom(17);
-			}
-		}
+        function expandViewportToFitPlace(map, place) {
+            if (place.geometry.viewport) {
+                map.fitBounds(place.geometry.viewport);
+            } else {
+                map.setCenter(place.geometry.location);
+                map.setZoom(17);
+            }
+        }
 
-		origin_autocomplete.addListener('place_changed', function() {
-			var place = origin_autocomplete.getPlace();
-			if (!place.geometry) {
-				window.alert("Autocomplete's returned place contains no geometry");
-				return;
-			}
-			expandViewportToFitPlace(map, place);
+        origin_autocomplete.addListener('place_changed', function() {
+            var place = origin_autocomplete.getPlace();
+            if (!place.geometry) {
+                window.alert("Autocomplete's returned place contains no geometry");
+                return;
+            }
+            expandViewportToFitPlace(map, place);
 
-			// If the place has a geometry, store its place ID and route if we have
-			// the other place ID
-			origin_place_id = place.place_id;
-			route(origin_place_id, destination_place_id, travel_mode,
-					directionsService, directionsDisplay);
-		});
+            // If the place has a geometry, store its place ID and route if we have
+            // the other place ID
+            origin_place_id = place.place_id;
+            route(origin_place_id, destination_place_id, travel_mode,
+                    directionsService, directionsDisplay);
+        });
 
-		destination_autocomplete.addListener('place_changed', function() {
-			var place = destination_autocomplete.getPlace();
-			if (!place.geometry) {
-				window.alert("Autocomplete's returned place contains no geometry");
-				return;
-			}
-			expandViewportToFitPlace(map, place);
+        destination_autocomplete.addListener('place_changed', function() {
+            var place = destination_autocomplete.getPlace();
+            if (!place.geometry) {
+                window.alert("Autocomplete's returned place contains no geometry");
+                return;
+            }
+            expandViewportToFitPlace(map, place);
 
-			// If the place has a geometry, store its place ID and route if we have
-			// the other place ID
-			destination_place_id = place.place_id;
-			route(origin_place_id, destination_place_id, travel_mode,
-					directionsService, directionsDisplay);
-		});
+            // If the place has a geometry, store its place ID and route if we have
+            // the other place ID
+            destination_place_id = place.place_id;
+            route(origin_place_id, destination_place_id, travel_mode,
+                    directionsService, directionsDisplay);
+        });
 
-		function route(origin_place_id, destination_place_id, travel_mode,
-					   directionsService, directionsDisplay) {
-			if (!origin_place_id || !destination_place_id) {
-				return;
-			}
-			directionsService.route({
-				origin: {'placeId': origin_place_id},
-				destination: {'placeId': destination_place_id},
-				travelMode: travel_mode
-			}, function(response, status) {
-				if (status === google.maps.DirectionsStatus.OK) {
-					directionsDisplay.setDirections(response);
-				} else {
-					window.alert('Directions request failed due to ' + status);
-				}
-			});
-		}
+        function route(origin_place_id, destination_place_id, travel_mode,
+                       directionsService, directionsDisplay) {
+            if (!origin_place_id || !destination_place_id) {
+                return;
+            }
+            directionsService.route({
+                origin: {'placeId': origin_place_id},
+                destination: {'placeId': destination_place_id},
+                travelMode: travel_mode
+            }, function(response, status) {
+                if (status === google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setDirections(response);
+                } else {
+                    window.alert('Directions request failed due to ' + status);
+                }
+            });
+        }
 
-		var stats = getBikeStations(map);
+        var stats = getBikeStations(map);
 
-		// Try HTML5 geolocation.
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(function(position) {
-				pos = {
-					lat: position.coords.latitude,
-					lng: position.coords.longitude
-				};
-				//infoWindow.setPosition(pos);
-				map.setCenter(pos);
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                //infoWindow.setPosition(pos);
+                map.setCenter(pos);
 
-				// SETS INPUT BOX TEXT
-				// Search for current location placeId
-				geocodeLatLng(geocoder, map, pos, 'origin-input');
+                // SETS INPUT BOX TEXT
+                // Search for current location placeId
+                geocodeLatLng(geocoder, map, pos, 'origin-input');
 
-				var closest = 99999;
-				var closeststation = 0;
-				for (var i = 0; i < station_array.length; i++) {
-					var distance_lat = pos.lat - station_array[i].getPosition().lat();
-					var distance_lng = pos.lng - station_array[i].getPosition().lng();
-					var distance = Math.sqrt(distance_lat * distance_lat + distance_lng * distance_lng);
+                var closest = 99999;
+                var closeststation = 0;
+                for (var i = 0; i < station_array.length; i++) {
+                    var distance_lat = pos.lat - station_array[i].getPosition().lat();
+                    var distance_lng = pos.lng - station_array[i].getPosition().lng();
+                    var distance = Math.sqrt(distance_lat * distance_lat + distance_lng * distance_lng);
 
-					if (distance < closest) {
-						closest = distance;
-						closeststation = i;
-					}
-				}
+                    if (distance < closest) {
+                        closest = distance;
+                        closeststation = i;
+                    }
+                }
 
-				directionsService.route({
-					origin: pos,
-					destination: station_array[closeststation].getPosition(),
-					travelMode: travel_mode
-				}, function(response, status) {
-					if (status === google.maps.DirectionsStatus.OK) {
-						directionsDisplay.setDirections(response);
-					} else {
-						window.alert('Directions request failed due to ' + status);
-					}
-				});
+                directionsService.route({
+                    origin: pos,
+                    destination: station_array[closeststation].getPosition(),
+                    travelMode: travel_mode
+                }, function(response, status) {
+                    if (status === google.maps.DirectionsStatus.OK) {
+                        directionsDisplay.setDirections(response);
+                        openInfoBox(station_array[closeststation].getTitle(), station_array[closeststation].addr, station_array[closeststation].bikes_avail, station_array[closeststation].docks_avail);
+                    } else {
+                        window.alert('Directions request failed due to ' + status);
+                    }
+                });
+                station_array[closeststation].setVisible(false);
 
-				station_array[closeststation].setVisible(false);
 
-
-			}, function() {
-				handleLocationError(true, infoWindow, map.getCenter());
-			});
-		} else {
-			// Browser doesn't support Geolocation
-			handleLocationError(false, infoWindow, map.getCenter());
-		}
-	}
+            }, function() {
+                handleLocationError(true, infoWindow, map.getCenter());
+            });
+        } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+        }
+    }
 
     function geocodeLatLng(geocoder, map, pos, inputBox) {
         geocoder.geocode({'location': pos}, function(results, status) {
@@ -306,75 +308,80 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
         });
     }
 
-	function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-		infoWindow.setPosition(pos);
-		infoWindow.setContent(browserHasGeolocation ?
-				'Error: The Geolocation service failed.' :
-				'Error: Your browser doesn\'t support geolocation.');
-	}
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
+    }
 
-	function getBikeStations(map) {
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open('GET', 'https://gbfs.bcycle.com/bcycle_pacersbikeshare/station_information.json', true);
-		xmlhttp.onreadystatechange = function() {
-			if (xmlhttp.readyState == 4) {
-				if(xmlhttp.status == 200) {
-					var obj = JSON.parse(xmlhttp.responseText);
-					createBikePins(map, obj.data);
-					return obj.data;
-				}
-			}
-		};
-		xmlhttp.send(null);
-	}
+    function getBikeStations(map) {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open('GET', 'https://gbfs.bcycle.com/bcycle_pacersbikeshare/station_information.json', true);
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4) {
+                if(xmlhttp.status == 200) {
+                    var obj = JSON.parse(xmlhttp.responseText);
+                    createBikePins(map, obj.data);
+                    return obj.data;
+                }
+            }
+        };
+        xmlhttp.send(null);
+    }
 
-	function createBikePins(map, stations) {
-		for (i = 0; i < 27; i++) {
-			var myLatLng = {lat: stations.stations[i].lat, lng: stations.stations[i].lon};
-			var marker = new google.maps.Marker({
-				position: myLatLng,
-				map: map,
-				title: stations.stations[i].name,
-				station_id: stations.stations[i].station_id,
-				bikes_avail: 0,
-				docks_avail: 0,
-                addr: stations.stations[i].address
-			});
-			station_array[i] = marker;
-            
-			google.maps.event.addListener(marker, 'click', function () {
-				getBikeStatus(this);
-                openInfoBox(this.getTitle(), this.addr, this.getTitle(), this.bikes_avail, this.docks_avail);
+    function createBikePins(map, stations) {
+        for (i = 0; i < 27; i++) {
+            var myLatLng = {lat: stations.stations[i].lat, lng: stations.stations[i].lon};
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: stations.stations[i].name,
+                station_id: stations.stations[i].station_id,
+                bikes_avail: 0,
+                docks_avail: 0,
+                addr: stations.stations[i].address,
+                i: i
+            });
+            station_array[i] = marker;
+
+            google.maps.event.addListener(marker, 'click', function () {
+                getBikeStatus(this);
+                map.panTo(this.position);
+                map.setCenter(this.position);
+                openInfoBox(this.getTitle(), this.addr, this.bikes_avail, this.docks_avail);
                 pos = this.position;
-			});
+                clickedStation = this.i;
+            });
 
-		}
-	}
+        }
+    }
 
-	function getBikeStatus(marker) {
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open('GET', 'https://gbfs.bcycle.com/bcycle_pacersbikeshare/station_status.json', false);
-		xmlhttp.onreadystatechange = function() {
-			if (xmlhttp.readyState == 4) {
-				if(xmlhttp.status == 200) {
-					var obj = JSON.parse(xmlhttp.responseText);
-					for (var i = 0; i < 27; i++) {
-						if (obj.data.stations[i].station_id === marker.station_id) {
-							marker.bikes_avail = obj.data.stations[i].num_bikes_available;
-							marker.docks_avail = obj.data.stations[i].num_docks_available;
-						}
-					}
-				}
-			}
-		};
-		xmlhttp.send(null);
-	}
+    function getBikeStatus(marker) {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open('GET', 'https://gbfs.bcycle.com/bcycle_pacersbikeshare/station_status.json', false);
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4) {
+                if(xmlhttp.status == 200) {
+                    var obj = JSON.parse(xmlhttp.responseText);
+                    for (var i = 0; i < 27; i++) {
+                        if (obj.data.stations[i].station_id === marker.station_id) {
+                            marker.bikes_avail = obj.data.stations[i].num_bikes_available;
+                            marker.docks_avail = obj.data.stations[i].num_docks_available;
+                        }
+                    }
+                }
+            }
+        };
+        xmlhttp.send(null);
+    }
 
-    function openInfoBox(title, addr, miles, bikes, docks) {
+    function openInfoBox(title, addr, bikes, docks) {
         document.getElementById("mapContainer").style.height= '72vh';
         document.getElementById("map").style.height= '66%';
 
-		infoBoxDirections(false, title, addr, miles);
+        document.getElementById("infoBx").innerHTML = "<div class='tableTitle'>'"+title+"'</div>'"+addr+"'<br><span id='dist'>N/A</span> Miles Away<br><div class='buttons'><pre><span onclick='closeInfoBox()'>Close</span>                            <span onclick='infoBoxDirections(true)'>Directions</span></pre></div>";
+        infoBoxDirections(false);
 
         document.getElementById("tLeft1").innerHTML = bikes+"<br>Bikes";
         document.getElementById("tLeft2").innerHTML = docks+"<br>Docks";
@@ -383,55 +390,65 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
     function closeInfoBox() {
         document.getElementById("mapContainer").style.height= '100vh';
         document.getElementById("map").style.height= '72%';
+
+        for (var i = 0; i < station_array.length; i++) {
+            station_array[i].setVisible(true);
+        }
+
+        directionsDisplay.setMap(null);
     }
 
-    function infoBoxDirections(display, title, addr, miles) {
-		geocodeLatLng(geocoder, map, pos, 'destination-input');
-		// Try HTML5 geolocation.
-        document.getElementById("infoBx").innerHTML = "<div class='tableTitle'>"+title+"</div>"+addr+"<br>N/A Miles Away<br><div class='buttons'><pre><span onclick='closeInfoBox()'>Close</span>                            <span onclick='infoBoxDirections(true," + title + ", " + addr + ", " + miles + ")'>Directions</span></pre></div>";
+    function infoBoxDirections(display) {
+        geocodeLatLng(geocoder, map, pos, 'destination-input');
+        // Try HTML5 geolocation.
         if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(function(position) {
-				var org = {
-					lat: position.coords.latitude,
-					lng: position.coords.longitude
-				};
-				//infoWindow.setPosition(pos);
-				map.setCenter(org);
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var org = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                //infoWindow.setPosition(pos);
+                //map.setCenter(org);
 
-				// SETS INPUT BOX TEXT
-				// Search for current location placeId
-				geocodeLatLng(geocoder, map, org, 'origin-input');
+                // SETS INPUT BOX TEXT
+                // Search for current location placeId
+                geocodeLatLng(geocoder, map, org, 'origin-input');
 
-				directionsService.route({
-					origin: org,
-					destination: {'placeId': destination_place_id},
-					travelMode: travel_mode
-				}, function(response, status) {
-					if (status === google.maps.DirectionsStatus.OK) {
+                directionsService.route({
+                    origin: org,
+                    destination: {'placeId': destination_place_id},
+                    travelMode: travel_mode
+                }, function(response, status) {
+                    if (status === google.maps.DirectionsStatus.OK) {
                         if (display==true) {
+                            directionsDisplay.setMap(map);
                             directionsDisplay.setDirections(response);
+                            for (var i = 0; i < station_array.length; i++) {
+                                station_array[i].setVisible(false)
+                            }
+                            document.getElementById("dist").innerHTML = (response.routes[0].legs[0].distance.value*0.000621371).toFixed(2);
                         }
                         else {
-                            document.getElementById("infoBx").innerHTML = "<div class='tableTitle'>"+title+"</div>"+addr+"<br>"+ (response.routes[0].legs[0].distance.value*0.000621371).toFixed(2) +" Miles Away<br><div class='buttons'><pre><span onclick='closeInfoBox()'>Close</span>                            <span onclick='infoBoxDirections(true, "+title+", "+addr+", "+miles+")'>Directions</span></pre></div>";
+                            document.getElementById("dist").innerHTML = (response.routes[0].legs[0].distance.value*0.000621371).toFixed(2);
                         }
-					} else {
-						window.alert('Directions request failed due to ' + status);
-					}
-				});
+                    } else {
+                        window.alert('Directions request failed due to ' + status);
+                    }
+                });
 
-			}, function() {
-                document.getElementById("infoBx").innerHTML = "<div class='tableTitle'>"+title+"</div>"+addr+"<br>N/A Miles Away<br><div class='buttons'><pre><span onclick='closeInfoBox()'>Close</span>                            <span onclick='infoBoxDirections(true," + title + ", " + addr + ", " + miles + ")'>Directions</span></pre></div>";
+            }, function() {
+                document.getElementById("dist").innerHTML = "N/A";
                 handleLocationError(true, infoWindow, map.getCenter());
-			});
-		} else {
-			// Browser doesn't support Geolocation
-			handleLocationError(false, infoWindow, map.getCenter());
-		}
+            });
+        } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+        }
     }
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLQhYCMXm-mF8RcIVuwt0RMB3XaOqGXWM&libraries=places&callback=initMap"
-		async defer></script>
+        async defer></script>
 </body>
 
 </html>

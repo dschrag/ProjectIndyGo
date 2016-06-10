@@ -23,14 +23,14 @@ function Trip(trip_id, lat, lng, time, vehicle) {
 
 function parseGTFS(response) {
     var strarr = response.split("\n"); // remove spaces
-    console.log(strarr);
+    //console.log(strarr);
     var i = 0, k = 0;
 
-    console.log(strarr[i+1].split("\"")[1]); // gets trip_id
+    /*console.log(strarr[i+1].split("\"")[1]); // gets trip_id
     console.log(strarr[i+4].replace('\"', '').split(':')[1].replace(' ', '')); // gets latitude
     console.log(strarr[i+5].replace('\"', '').split(':')[1].replace(' ', '')); // gets longitude
     console.log(strarr[i+7].split(':')[1].replace(' ', '')); // gets timestamp
-    console.log(strarr[i+9].split(' ')[3].replace("\"", '').replace("\"", '')); // gets vehicle label
+    console.log(strarr[i+9].split(' ')[3].replace("\"", '').replace("\"", '')); // gets vehicle label*/
 
     var trip_array = [];
 
