@@ -120,13 +120,15 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 
 <section id="two">
 </section>
-
+<script type="text/javascript" src="js/gtfsparser.js"></script>
 <script>
 	// This example requires the Places library. Include the libraries=places
 	// parameter when you first load the API. For example:
 	// <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
-	var station_array = [];
+		readDropbox("https://dl.dropbox.com/s/o5ajnzozjend26q/gtfs_data.json?dl=1");
+
+		var station_array = [];
     var origin_place_id = null;
     var destination_place_id = null;
     var origin_input;
