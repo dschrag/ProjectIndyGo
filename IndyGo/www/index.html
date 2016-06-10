@@ -299,7 +299,7 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
                     window.alert('No results found');
                 }
             } else {
-                window.alert('Geocoder failed due to: ' + status);
+                //window.alert('Geocoder failed due to: ' + status);
             }
         });
     }
@@ -337,12 +337,11 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 				bikes_avail: 0,
 				docks_avail: 0
 			});
-
 			station_array[i] = marker;
-
+            //console.log(stations.stations[i].address);
 			google.maps.event.addListener(marker, 'click', function () {
 				getBikeStatus(this);
-                openInfoBox(this.getTitle(), this.getTitle(), this.getTitle(), this.bikes_avail, this.docks_avail);
+                openInfoBox(this.getTitle(), stations.stations[i].address, this.getTitle(), this.bikes_avail, this.docks_avail);
                 pos = this.position;
 			});
 
@@ -356,7 +355,6 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 			if (xmlhttp.readyState == 4) {
 				if(xmlhttp.status == 200) {
 					var obj = JSON.parse(xmlhttp.responseText);
-					var bikestatus;
 					for (var i = 0; i < 27; i++) {
 						if (obj.data.stations[i].station_id === marker.station_id) {
 							marker.bikes_avail = obj.data.stations[i].num_bikes_available;
@@ -372,7 +370,9 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
     function openInfoBox(title, addr, miles, bikes, docks) {
         document.getElementById("mapContainer").style.height= '72vh';
         document.getElementById("map").style.height= '66%';
-        document.getElementById("infoBx").innerHTML = "<div class='tableTitle'>"+title+"</div>"+addr+"<br>"+"#"+" Miles Away<br><div class='buttons'><pre><span onclick='closeInfoBox()'>Close</span>                            <span onclick='infoBoxDirections()'>Directions</span></pre></div>";
+
+		infoBoxDirections(false, title, addr, miles);
+
         document.getElementById("tLeft1").innerHTML = bikes+"<br>Bikes";
         document.getElementById("tLeft2").innerHTML = docks+"<br>Docks";
     }
@@ -382,10 +382,11 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
         document.getElementById("map").style.height= '72%';
     }
 
-    function infoBoxDirections() {
+    function infoBoxDirections(display, title, addr, miles) {
 		geocodeLatLng(geocoder, map, pos, 'destination-input');
 		// Try HTML5 geolocation.
-		if (navigator.geolocation) {
+        document.getElementById("infoBx").innerHTML = "<div class='tableTitle'>"+title+"</div>"+addr+"<br>N/A Miles Away<br><div class='buttons'><pre><span onclick='closeInfoBox()'>Close</span>                            <span onclick='infoBoxDirections(true," + title + ", " + addr + ", " + miles + ")'>Directions</span></pre></div>";
+        if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(function(position) {
 				var org = {
 					lat: position.coords.latitude,
@@ -404,14 +405,20 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 					travelMode: travel_mode
 				}, function(response, status) {
 					if (status === google.maps.DirectionsStatus.OK) {
-                        directionsDisplay.setDirections(response);
+                        if (display==true) {
+                            directionsDisplay.setDirections(response);
+                        }
+                        else {
+                            document.getElementById("infoBx").innerHTML = "<div class='tableTitle'>"+title+"</div>"+addr+"<br>"+ (response.routes[0].legs[0].distance.value*0.000621371).toFixed(2) +" Miles Away<br><div class='buttons'><pre><span onclick='closeInfoBox()'>Close</span>                            <span onclick='infoBoxDirections(true, "+title+", "+addr+", "+miles+")'>Directions</span></pre></div>";
+                        }
 					} else {
 						window.alert('Directions request failed due to ' + status);
 					}
 				});
 
 			}, function() {
-				handleLocationError(true, infoWindow, map.getCenter());
+                document.getElementById("infoBx").innerHTML = "<div class='tableTitle'>"+title+"</div>"+addr+"<br>N/A Miles Away<br><div class='buttons'><pre><span onclick='closeInfoBox()'>Close</span>                            <span onclick='infoBoxDirections(true," + title + ", " + addr + ", " + miles + ")'>Directions</span></pre></div>";
+                handleLocationError(true, infoWindow, map.getCenter());
 			});
 		} else {
 			// Browser doesn't support Geolocation
