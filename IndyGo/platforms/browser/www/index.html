@@ -20,62 +20,10 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
         <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="css/style-xlarge.css" />
     </noscript>
-
-    <style>
-        .controls {
-            margin-top: 10px;
-            border: 1px solid transparent;
-            border-radius: 2px 0 0 2px;
-            box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            height: 32px;
-            outline: none;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-        }
-
-
-        #origin-input,
-        #destination-input {
-            background-color: #fff;
-            font-family: Roboto;
-            font-size: 15px;
-            font-weight: 300;
-            margin-left: 35px;
-            text-overflow: ellipsis;
-            width: 150px;
-        }
-
-        #origin-input,
-        #destination-input {
-            background-color: #fff;
-            font-family: Roboto;
-            font-size: 15px;
-            font-weight: 300;
-            margin-left: 35px;
-            text-overflow: ellipsis;
-            width: 150px;
-        }
-
-
-        #origin-input:focus,
-        #destination-input:focus {
-            border-color: #4d90fe;
-        }
-    </style>
 </head>
 
 <body class="landing">
 
-<!-- Header -->
-<!-- <header id="header" class="alt">
-<nav id="nav">
-<ul>
-<li><a href="index.html">BikeShare</a></li>
-<li><a href="generic.html">IndyGo</a></li>
-<li><a href="elements.html">Payment</a></li>
-</ul>
-</nav>
-</header> -->
 <header id="header" class="alt">
     <nav id="nav">
         <ul>
@@ -121,20 +69,26 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 <section id="two">
 </section>
 <script type="text/javascript" src="js/gtfsparser.js"></script>
+<script type="text/javascript" src="js/bikeshare.js"></script>
 <script>
     // This example requires the Places library. Include the libraries=places
     // parameter when you first load the API. For example:
     // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
+		var bus_or_bike; // 1 for bike, 0 for bus
+
 		if (/indygo/.test(window.location.href)) {
-			console.log("Getting bus");
+			bus_or_bike = 0;
 		} else if (/bikeshare/.test(window.location.href)) {
-			console.log("Getting bike");
+			bus_or_bike = 1;
 		}
 
-
-		var station_array = [];
+    var station_array = [];
 		var bus_array = [];
+
+    var station_array = [];
+    var bus_array = [];
+
     var origin_place_id = null;
     var destination_place_id = null;
     var origin_input;
@@ -167,6 +121,12 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 		directionsService = new google.maps.DirectionsService;
 		directionsDisplay = new google.maps.DirectionsRenderer;
 		directionsDisplay.setMap(map);
+
+		if (bus_or_bike == 0) {
+			var livebus = readDropbox("https://dl.dropbox.com/s/o5ajnzozjend26q/gtfs_data.json?dl=1");
+		} else if (bus_or_bike == 1) {
+			var stats = getBikeStations(map);
+		}
 
 		origin_input = document.getElementById('origin-input');
 		destination_input = document.getElementById('destination-input');
@@ -237,11 +197,6 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 			});
 		}
 
-		var stats = getBikeStations(map);
-
-		var livebus = readDropbox("https://dl.dropbox.com/s/o5ajnzozjend26q/gtfs_data.json?dl=1");
-
-
 		// Try HTML5 geolocation.
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(function(position) {
@@ -256,36 +211,9 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 				// Search for current location placeId
 				geocodeLatLng(geocoder, map, pos, 'origin-input');
 
-				var closest = 99999;
-				var closeststation = 0;
-				for (var i = 0; i < station_array.length; i++) {
-					var distance_lat = pos.lat - station_array[i].getPosition().lat();
-					var distance_lng = pos.lng - station_array[i].getPosition().lng();
-					var distance = Math.sqrt(distance_lat * distance_lat + distance_lng * distance_lng);
-
-					if (distance < closest) {
-						closest = distance;
-						closeststation = i;
-					}
+				if (bus_or_bike == 1) {
+					getClosestBikeStation();
 				}
-
-				getBikeStatus(station_array[closeststation]);
-				openInfoBox(station_array[closeststation].getTitle(), station_array[closeststation].addr, station_array[closeststation].bikes_avail, station_array[closeststation].docks_avail);
-
-				directionsService.route({
-					origin: pos,
-					destination: station_array[closeststation].getPosition(),
-					travelMode: travel_mode
-				}, function(response, status) {
-					if (status === google.maps.DirectionsStatus.OK) {
-						directionsDisplay.setDirections(response);
-					} else {
-						window.alert('Directions request failed due to ' + status);
-					}
-				});
-
-				station_array[closeststation].setVisible(false);
-
 
 			}, function() {
 				handleLocationError(true, infoWindow, map.getCenter());
@@ -329,66 +257,7 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
                 'Error: Your browser doesn\'t support geolocation.');
     }
 
-    function getBikeStations(map) {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open('GET', 'https://gbfs.bcycle.com/bcycle_pacersbikeshare/station_information.json', true);
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4) {
-                if(xmlhttp.status == 200) {
-                    var obj = JSON.parse(xmlhttp.responseText);
-                    createBikePins(map, obj.data);
-                    return obj.data;
-                }
-            }
-        };
-        xmlhttp.send(null);
-    }
 
-    function createBikePins(map, stations) {
-        for (i = 0; i < 27; i++) {
-            var myLatLng = {lat: stations.stations[i].lat, lng: stations.stations[i].lon};
-            var marker = new google.maps.Marker({
-                position: myLatLng,
-                map: map,
-                title: stations.stations[i].name,
-                station_id: stations.stations[i].station_id,
-                bikes_avail: 0,
-                docks_avail: 0,
-                addr: stations.stations[i].address,
-                i: i
-            });
-            station_array[i] = marker;
-
-            google.maps.event.addListener(marker, 'click', function () {
-                getBikeStatus(this);
-                map.panTo(this.position);
-                map.setCenter(this.position);
-                openInfoBox(this.getTitle(), this.addr, this.bikes_avail, this.docks_avail);
-                pos = this.position;
-                clickedStation = this.i;
-            });
-
-        }
-    }
-
-    function getBikeStatus(marker) {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open('GET', 'https://gbfs.bcycle.com/bcycle_pacersbikeshare/station_status.json', false);
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4) {
-                if(xmlhttp.status == 200) {
-                    var obj = JSON.parse(xmlhttp.responseText);
-                    for (var i = 0; i < 27; i++) {
-                        if (obj.data.stations[i].station_id === marker.station_id) {
-                            marker.bikes_avail = obj.data.stations[i].num_bikes_available;
-                            marker.docks_avail = obj.data.stations[i].num_docks_available;
-                        }
-                    }
-                }
-            }
-        };
-        xmlhttp.send(null);
-    }
 
     function openInfoBox(title, addr, bikes, docks) {
         document.getElementById("mapContainer").style.height= '72vh';

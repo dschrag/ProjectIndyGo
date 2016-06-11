@@ -20,62 +20,10 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
         <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="css/style-xlarge.css" />
     </noscript>
-
-    <style>
-        .controls {
-            margin-top: 10px;
-            border: 1px solid transparent;
-            border-radius: 2px 0 0 2px;
-            box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            height: 32px;
-            outline: none;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-        }
-
-
-        #origin-input,
-        #destination-input {
-            background-color: #fff;
-            font-family: Roboto;
-            font-size: 15px;
-            font-weight: 300;
-            margin-left: 35px;
-            text-overflow: ellipsis;
-            width: 150px;
-        }
-
-        #origin-input,
-        #destination-input {
-            background-color: #fff;
-            font-family: Roboto;
-            font-size: 15px;
-            font-weight: 300;
-            margin-left: 35px;
-            text-overflow: ellipsis;
-            width: 150px;
-        }
-
-
-        #origin-input:focus,
-        #destination-input:focus {
-            border-color: #4d90fe;
-        }
-    </style>
 </head>
 
 <body class="landing">
 
-<!-- Header -->
-<!-- <header id="header" class="alt">
-<nav id="nav">
-<ul>
-<li><a href="index.html">BikeShare</a></li>
-<li><a href="generic.html">IndyGo</a></li>
-<li><a href="elements.html">Payment</a></li>
-</ul>
-</nav>
-</header> -->
 <header id="header" class="alt">
     <nav id="nav">
         <ul>
@@ -127,7 +75,13 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
     // parameter when you first load the API. For example:
     // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
-		var bus_or_bike = 1; // 1 for bike, 0 for bus
+		var bus_or_bike; // 1 for bike, 0 for bus
+
+		if (/indygo/.test(window.location.href)) {
+			bus_or_bike = 0;
+		} else if (/bikeshare/.test(window.location.href)) {
+			bus_or_bike = 1;
+		}
 
     var station_array = [];
 		var bus_array = [];
@@ -168,9 +122,9 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 		directionsDisplay = new google.maps.DirectionsRenderer;
 		directionsDisplay.setMap(map);
 
-		if (/indygo/.test(window.location.href)) {
+		if (bus_or_bike == 0) {
 			var livebus = readDropbox("https://dl.dropbox.com/s/o5ajnzozjend26q/gtfs_data.json?dl=1");
-		} else if (/bikeshare/.test(window.location.href)) {
+		} else if (bus_or_bike == 1) {
 			var stats = getBikeStations(map);
 		}
 
