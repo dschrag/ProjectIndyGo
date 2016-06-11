@@ -77,24 +77,6 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 </nav>
 </header> -->
 <header id="header" class="alt">
-<<<<<<< HEAD
-	<nav id="nav">
-		<ul>
-			<li>
-				<div id="profile">
-					<h7>John Roberts</h7>
-					<p>view profile</p>
-				</div>
-				<div><img src="images/ppic.png" alt="profile pic"></div>
-
-				<!-- <a href="generic.html">Profile</a> -->
-			</li>
-			<li><a href="index.html">BikeShare</a></li>
-			<li><a href="bus.html">IndyGo</a></li>
-			<li><a href="login.html">Payment</a></li>
-		</ul>
-	</nav>
-=======
     <nav id="nav">
         <ul>
             <li>
@@ -106,12 +88,11 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 
                 <!-- <a href="generic.html">Profile</a> -->
             </li>
-            <li><a href="index.html">BikeShare</a></li>
-            <li><a href="bus.html">IndyGo</a></li>
+            <li><a href="?bikeshare">BikeShare</a></li>
+            <li><a href="?indygo">IndyGo</a></li>
             <li><a href="login.html">Payment</a></li>
         </ul>
     </nav>
->>>>>>> 9fc33386930f05929e8d8c425f2ba4558ef221b3
 </header>
 
 <!-- One -->
@@ -143,6 +124,13 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
     // This example requires the Places library. Include the libraries=places
     // parameter when you first load the API. For example:
     // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+		if (/indygo/.test(window.location.href)) {
+			console.log("Getting bus");
+		} else if (/bikeshare/.test(window.location.href)) {
+			console.log("Getting bike");
+		}
+
 
 		var station_array = [];
 		var bus_array = [];
@@ -251,7 +239,6 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 		var stats = getBikeStations(map);
 
 		var livebus = readDropbox("https://dl.dropbox.com/s/o5ajnzozjend26q/gtfs_data.json?dl=1");
-		console.log("Getting bus");
 
 		function createBusPins(map, livebus) {
 			for (i = 0; i < livebus.length; i++) {
