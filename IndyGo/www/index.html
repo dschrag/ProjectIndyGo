@@ -257,6 +257,8 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
                         closeststation = i;
                     }
                 }
+                getBikeStatus(station_array[closeststation]);
+                openInfoBox(station_array[closeststation].getTitle(), station_array[closeststation].addr, station_array[closeststation].bikes_avail, station_array[closeststation].docks_avail);
 
                 directionsService.route({
                     origin: pos,
@@ -265,8 +267,7 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
                 }, function(response, status) {
                     if (status === google.maps.DirectionsStatus.OK) {
                         directionsDisplay.setDirections(response);
-                        openInfoBox(station_array[closeststation].getTitle(), station_array[closeststation].addr, station_array[closeststation].bikes_avail, station_array[closeststation].docks_avail);
-                    } else {
+                        } else {
                         window.alert('Directions request failed due to ' + status);
                     }
                 });

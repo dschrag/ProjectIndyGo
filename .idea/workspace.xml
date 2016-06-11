@@ -4,7 +4,6 @@
     <list default="true" id="b31e43aa-f6bb-46e5-9633-77becf05b807" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IndyGo/www/index.html" afterPath="$PROJECT_DIR$/IndyGo/www/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IndyGo/www/js/gtfsparser.js" afterPath="$PROJECT_DIR$/IndyGo/www/js/gtfsparser.js" />
     </list>
     <ignored path="ProjectIndyGo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,8 +28,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/IndyGo/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="360" column="40" selection-start-line="360" selection-start-column="40" selection-end-line="360" selection-end-column="40" />
+            <state relative-caret-position="323">
+              <caret line="263" column="32" selection-start-line="263" selection-start-column="32" selection-end-line="263" selection-end-column="32" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -240,12 +239,12 @@
       <workItem from="1465350960387" duration="7385000" />
       <workItem from="1465431678373" duration="13742000" />
       <workItem from="1465518161386" duration="3447000" />
-      <workItem from="1465595496900" duration="4442000" />
+      <workItem from="1465595496900" duration="6893000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39623000" />
+    <option name="totallyTimeSpent" value="42074000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -257,7 +256,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -470,8 +469,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/IndyGo/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="360" column="40" selection-start-line="360" selection-start-column="40" selection-end-line="360" selection-end-column="40" />
+        <state relative-caret-position="323">
+          <caret line="263" column="32" selection-start-line="263" selection-start-column="32" selection-end-line="263" selection-end-column="32" />
           <folding>
             <element signature="n#style#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
