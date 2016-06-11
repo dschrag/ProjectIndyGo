@@ -249,6 +249,7 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 		var stats = getBikeStations(map);
 
 		var livebus = readDropbox("https://dl.dropbox.com/s/o5ajnzozjend26q/gtfs_data.json?dl=1");
+		console.log("Getting bus");
 
 		function createBusPins(map, livebus) {
 			for (i = 0; i < livebus.length; i++) {
@@ -295,7 +296,7 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 
 		function parseGTFS(response) {
 		    var strarr = response.split("\n"); // remove spaces
-		    // console.log(strarr);
+		    //console.log(strarr);
 		    var i = 0, k = 0;
 
 		    // console.log(strarr[i+1].split("\"")[1]); // gets trip_id
@@ -349,6 +350,9 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 					}
 				}
 
+				getBikeStatus(station_array[closeststation]);
+				openInfoBox(station_array[closeststation].getTitle(), station_array[closeststation].addr, station_array[closeststation].bikes_avail, station_array[closeststation].docks_avail);
+
 				directionsService.route({
 					origin: pos,
 					destination: station_array[closeststation].getPosition(),
@@ -362,8 +366,6 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 				});
 
 				station_array[closeststation].setVisible(false);
-				getBikeStatus(station_array[closeststation]);
-				openInfoBox(station_array[closeststation].getTitle(), station_array[closeststation].addr, station_array[closeststation].bikes_avail, station_array[closeststation].docks_avail);
 
 
 			}, function() {
