@@ -738,6 +738,16 @@
             text-align: center;
             background-color: rgba(254, 206, 12, 1);
             color: rgba(0, 46, 97, 1);
+            vertical-align: middle;
+        }
+
+        table span.bikeDockTxt{
+            margin-top: 1em;
+            margin-bottom: 1em;
+            text-align: center;
+            background-color: rgba(254, 206, 12, 1);
+            color: rgba(0, 46, 97, 1);
+            font-size: 1em;
         }
 
         table div.tableTitle{
