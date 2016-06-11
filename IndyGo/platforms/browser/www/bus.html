@@ -1,6 +1,24 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML>
+<!--
+	Spatial by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
 <head>
     <title>Pay</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <!--[if lte IE 8]>
+    <script src="js/html5shiv.js"></script><![endif]-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/skel.min.js"></script>
+    <script src="js/skel-layers.min.js"></script>
+    <script src="js/init.js"></script>
+    <noscript>
+        <link rel="stylesheet" href="css/skel.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/style-xlarge.css" />
+    </noscript>
     <style type="text/css">
         body, html
         {
@@ -9,13 +27,32 @@
 
         #content
         {
-            position:absolute; left: 0; right: 0; bottom: 0; top: 0px;
+           left: 0; right: 0;
         }
     </style>
 </head>
 <body>
-<div id="content">
-    <iframe width="100%" height="100%" frameborder="0" src="http://buy.indygo.net/" />
-</div>
+
+<!-- Header -->
+<header id="header" class="alt">
+    <nav id="nav">
+        <ul>
+            <li><a href="index.html">BikeShare</a></li>
+            <li><a href="bus.html">IndyGo</a></li>
+            <li><a href="login.html">Payment</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- One -->
+<span id="one" class="wrapper style1" style="height: 100vh">
+    <div class="container 75%">
+        <div id="content" style="height: 100vh; width: 100%; position: absolute; margin: auto;">
+            <iframe width="100%" height="100%" frameborder="0" src="http://buy.indygo.net/"></iframe>
+        </div>
+    </div>
+</span>
+
+
 </body>
 </html>
