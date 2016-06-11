@@ -381,11 +381,11 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
         document.getElementById("mapContainer").style.height= '72vh';
         document.getElementById("map").style.height= '66%';
 
-        document.getElementById("infoBx").innerHTML = "<div class='tableTitle'>'"+title+"'</div>'"+addr+"'<br><span id='dist'>N/A</span> Miles Away<br><div class='buttons'><pre><span onclick='closeInfoBox()'>Close</span>                            <span onclick='infoBoxDirections(true)'>Directions</span></pre></div>";
+        document.getElementById("infoBx").innerHTML = "<div class='tableTitle'>"+title+"</div>"+addr+"<br><span id='dist'>N/A</span> Miles Away<br><div class='buttons'><pre><span onclick='closeInfoBox()'>Close</span>                            <span onclick='infoBoxDirections(true)'>Directions</span></pre></div>";
         infoBoxDirections(false);
 
-        document.getElementById("tLeft1").innerHTML = bikes+"<br>Bikes";
-        document.getElementById("tLeft2").innerHTML = docks+"<br>Docks";
+        document.getElementById("tLeft1").innerHTML = "<span style='font-size:2em'>"+bikes+"</span><br>Bikes";
+        document.getElementById("tLeft2").innerHTML = "<span style='font-size:2em'>"+docks+"</span><br>Docks";
     }
 
     function closeInfoBox() {
