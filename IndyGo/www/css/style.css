@@ -30,7 +30,7 @@
 
 	body, input, select, textarea {
 		color: #666;
-		font-family: "Raleway", Arial, Helvetica, sans-serif;
+		font-family: HelveticaNeue, sans-serif;
 		font-size: 13pt;
 		font-weight: 400;
 		line-height: 2em;
@@ -711,6 +711,7 @@
 
 
         table td {
+            font-size: 1em;
             padding-top: 0.25em;
             padding-right: 0.75em;
             padding-left: 0.75em;
@@ -737,17 +738,16 @@
             text-align: center;
             background-color: rgba(254, 206, 12, 1);
             color: rgba(0, 46, 97, 1);
-            font-weight: bold;
         }
 
         table div.tableTitle{
-            font-size: 1.6em;
+            font-size: 2em;
         }
 
         table div.buttons{
             text-align: center;
             color: rgba(0, 46, 97, 1);
-            font-weight: bold;
+            font-size: 1.165em;
         }
 
         table div.close{
