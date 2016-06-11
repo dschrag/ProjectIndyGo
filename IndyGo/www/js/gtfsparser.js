@@ -6,8 +6,10 @@
 					position: {lat: Number(livebus[i].pos.lat), lng: Number(livebus[i].pos.lng)},
 					map: map,
 					title: livebus[i].vehicle,
-					icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+					//icon: '../images/BusMarker.png'
+                    icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
 				});
+                console.log(marker.icon);
 				bus_array[i] = marker;
 
 				google.maps.event.addListener(marker, 'click', function () {

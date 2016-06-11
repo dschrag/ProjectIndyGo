@@ -20,48 +20,6 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
         <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="css/style-xlarge.css" />
     </noscript>
-
-    <style>
-        .controls {
-            margin-top: 10px;
-            border: 1px solid transparent;
-            border-radius: 2px 0 0 2px;
-            box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            height: 32px;
-            outline: none;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-        }
-
-
-        #origin-input,
-        #destination-input {
-            background-color: #fff;
-            font-family: Roboto;
-            font-size: 15px;
-            font-weight: 300;
-            margin-left: 35px;
-            text-overflow: ellipsis;
-            width: 150px;
-        }
-
-        #origin-input,
-        #destination-input {
-            background-color: #fff;
-            font-family: Roboto;
-            font-size: 15px;
-            font-weight: 300;
-            margin-left: 35px;
-            text-overflow: ellipsis;
-            width: 150px;
-        }
-
-
-        #origin-input:focus,
-        #destination-input:focus {
-            border-color: #4d90fe;
-        }
-    </style>
 </head>
 
 <body class="landing">
@@ -355,7 +313,7 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
                 position: myLatLng,
                 map: map,
                 title: stations.stations[i].name,
-                //icon: 'images/BikeMarker.png',
+                icon: 'images/BikeMarker.png',
                 station_id: stations.stations[i].station_id,
                 bikes_avail: 0,
                 docks_avail: 0,
