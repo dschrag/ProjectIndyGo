@@ -63,7 +63,7 @@ function getBikeStatus(marker) {
 function getClosestBikeStation() {
   var closest = 99999;
   var closeststation = 0;
-  for (var i = 0; i < station_array.length; i++) {
+  for (var i = 0; i < 27; i++) {
     var distance_lat = pos.lat - station_array[i].getPosition().lat();
     var distance_lng = pos.lng - station_array[i].getPosition().lng();
     var distance = Math.sqrt(distance_lat * distance_lat + distance_lng * distance_lng);
@@ -74,7 +74,6 @@ function getClosestBikeStation() {
     }
   }
 
-  console.log(station_array[closeststation]);
   getBikeStatus(station_array[closeststation]);
   openInfoBox(station_array[closeststation].getTitle(), station_array[closeststation].addr, station_array[closeststation].bikes_avail, station_array[closeststation].docks_avail);
 
