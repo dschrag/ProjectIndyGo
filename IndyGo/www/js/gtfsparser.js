@@ -1,5 +1,8 @@
 
 		function createBusPins(map, livebus) {
+      for (i = 0; i < bus_array.length; i++) {
+        bus_array[i].setMap(null);
+      }
 			for (i = 0; i < livebus.length; i++) {
 				var myLatLng = livebus[i].pos;
 				var marker = new google.maps.Marker({
@@ -20,10 +23,11 @@
 			}
 		}
 
-		function readDropbox(sURL)
+		function readDropbox()
 		{
+        console.log("Running");
 				var xmlhttp = new XMLHttpRequest();
-				xmlhttp.open('GET', sURL, true);
+				xmlhttp.open('GET', "https://dl.dropbox.com/s/o5ajnzozjend26q/gtfs_data.json?dl=1", true);
 				xmlhttp.onreadystatechange = function() {
 					if (xmlhttp.readyState == 4) {
 						if(xmlhttp.status == 200) {

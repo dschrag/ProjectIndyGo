@@ -56,11 +56,11 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
     <div id="stationInfor">
         <table>
             <tr>
-                <td id = "tLeft1" class="tLeft">11<br>Bikes</td>
-                <td id="infoBx" class="tRight" colspan="2" rowspan="2"><div class="tableTitle">[INSERT TITLE VAR]</div>[INSERT ADDRESS VAR]<br><span id="dist">[VAR]</span> Miles Away<br><div class="buttons"><pre><span onclick="closeInfoBox()">Close</span>                            <span onclick="infoBoxDirections()">Directions</span></pre></div></td>
+                <td id = "tLeft1" class="tLeft">11<br><span class="bikeDockTxt">Bikes</span></td>
+                <td id="infoBx" class="tRight" colspan="2" rowspan="2">Indy Pacers Bikeshare Station:<div class="tableTitle">[INSERT TITLE VAR]</div>[INSERT ADDRESS VAR]<br><span id="dist">[VAR]</span> Miles Away<br><div class="buttons"><pre><span onclick="closeInfoBox()">Close</span>                            <span onclick="infoBoxDirections()">Directions</span></pre></div></td>
             </tr>
-            <tr style="border-top: rgba(0, 46, 97, 1) 2px solid;">
-                <td id ="tLeft2" class="tLeft">12<br>Empty Docks</td>
+            <tr>
+                <td id ="tLeft2" class="tLeft">12<br><span class="bikeDockTxt">Empty Docks</span></td>
             </tr>
         </table>
     </div>
@@ -107,6 +107,28 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 
     var clickedStation;
 
+		var livebus;
+
+		function CenterControl(controlDiv, map) {
+
+        // Set CSS for the control border.
+        var controlUI = document.createElement('div');
+        //controlUI.style.backgroundColor = '#fff';
+        controlUI.style.cursor = 'pointer';
+				controlUI.style.backgroundImage = 'url(images/refresh32.png)';
+				controlUI.style.width = '32px';
+				controlUI.style.height = '32px';
+        controlUI.title = 'Click to recenter the map';
+        controlDiv.appendChild(controlUI);
+
+        // Setup the click event listeners: simply set the map to Chicago.
+        controlUI.addEventListener('click', function() {
+					console.log("Clicked!");
+        	livebus = readDropbox();
+        });
+
+      }
+
     function initMap() {
         travel_mode = google.maps.TravelMode.BICYCLING;
         map = new google.maps.Map(document.getElementById('map'), {
@@ -123,10 +145,16 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 		directionsDisplay.setMap(map);
 
 		if (bus_or_bike == 0) {
-			var livebus = readDropbox("https://dl.dropbox.com/s/o5ajnzozjend26q/gtfs_data.json?dl=1");
+			livebus = readDropbox();
 		} else if (bus_or_bike == 1) {
 			var stats = getBikeStations(map);
 		}
+
+		var centerControlDiv = document.createElement('div');
+    var centerControl = new CenterControl(centerControlDiv, map);
+
+    centerControlDiv.index = 1;
+    map.controls[google.maps.ControlPosition.RIGHT].push(centerControlDiv);
 
 		origin_input = document.getElementById('origin-input');
 		destination_input = document.getElementById('destination-input');
@@ -258,14 +286,14 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
     }
 
     function openInfoBox(title, addr, bikes, docks) {
-        document.getElementById("mapContainer").style.height= '72vh';
-        document.getElementById("map").style.height= '66%';
+        document.getElementById("mapContainer").style.height= '65vh';
+        document.getElementById("map").style.height= '58%';
 
-        document.getElementById("infoBx").innerHTML = "<div class='tableTitle'>"+title+"</div>"+addr+"<br><span id='dist'>N/A</span> Miles Away<br><div class='buttons'><pre><span onclick='closeInfoBox()'>Close</span>                            <span onclick='infoBoxDirections(true)'>Directions</span></pre></div>";
+        document.getElementById("infoBx").innerHTML = "Indy Pacers Bikeshare Station:<div class='tableTitle'>"+title+"</div>"+addr+"<br><span id='dist'>N/A</span> Miles Away<br><div class='buttons'><pre><span onclick='closeInfoBox()'>Close</span>                            <span onclick='infoBoxDirections(true)'>Directions</span></pre></div>";
         infoBoxDirections(false);
 
-        document.getElementById("tLeft1").innerHTML = "<span style='font-size:3em'>"+bikes+"</span><br>Bikes";
-        document.getElementById("tLeft2").innerHTML = "<span style='font-size:3em'>"+docks+"</span><br>Docks";
+        document.getElementById("tLeft1").innerHTML = "<span style='font-size:3em'>"+bikes+"</span><br><span class='bikeDockTxt'>Bikes</span>";
+        document.getElementById("tLeft2").innerHTML = "<span style='font-size:3em'>"+docks+"</span><br><span class='bikeDockTxt'>Docks</span>";
     }
 
     function closeInfoBox() {

@@ -107,6 +107,28 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 
     var clickedStation;
 
+		var livebus;
+
+		function CenterControl(controlDiv, map) {
+
+        // Set CSS for the control border.
+        var controlUI = document.createElement('div');
+        //controlUI.style.backgroundColor = '#fff';
+        controlUI.style.cursor = 'pointer';
+				controlUI.style.backgroundImage = 'url(images/refresh32.png)';
+				controlUI.style.width = '32px';
+				controlUI.style.height = '32px';
+        controlUI.title = 'Click to recenter the map';
+        controlDiv.appendChild(controlUI);
+
+        // Setup the click event listeners: simply set the map to Chicago.
+        controlUI.addEventListener('click', function() {
+					console.log("Clicked!");
+        	livebus = readDropbox();
+        });
+
+      }
+
     function initMap() {
         travel_mode = google.maps.TravelMode.BICYCLING;
         map = new google.maps.Map(document.getElementById('map'), {
@@ -123,10 +145,16 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 		directionsDisplay.setMap(map);
 
 		if (bus_or_bike == 0) {
-			var livebus = readDropbox("https://dl.dropbox.com/s/o5ajnzozjend26q/gtfs_data.json?dl=1");
+			livebus = readDropbox();
 		} else if (bus_or_bike == 1) {
 			var stats = getBikeStations(map);
 		}
+
+		var centerControlDiv = document.createElement('div');
+    var centerControl = new CenterControl(centerControlDiv, map);
+
+    centerControlDiv.index = 1;
+    map.controls[google.maps.ControlPosition.RIGHT].push(centerControlDiv);
 
 		origin_input = document.getElementById('origin-input');
 		destination_input = document.getElementById('destination-input');
