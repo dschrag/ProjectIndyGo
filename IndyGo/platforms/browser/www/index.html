@@ -105,6 +105,7 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
     var map;
     var pos;
     var geocoder;
+    var busPath;
 
     var directionsService;
     var directionsDisplay;
@@ -126,7 +127,7 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 				controlUI.style.width = '61px';
 				controlUI.style.height = '55.5px';
         controlUI.style.marginTop = '65px';
-        controlUI.title = 'Click to recenter the map';
+        controlUI.title = 'Click to refresh bus data';
         controlDiv.appendChild(controlUI);
 
         // Setup the click event listeners: simply set the map to Chicago.
@@ -151,6 +152,13 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 		directionsService = new google.maps.DirectionsService;
 		directionsDisplay = new google.maps.DirectionsRenderer;
 		directionsDisplay.setMap(map);
+
+     busPath = new google.maps.Polyline({
+     geodesic: true,
+     strokeColor: '#002E61',
+     strokeOpacity: 1.0,
+     strokeWeight: 5
+    });
 
 		if (bus_or_bike == 0) {
 			livebus = readDropbox();

@@ -1,5 +1,7 @@
 
 var selected_bus;
+
+
 		function createBusPins(map, livebus) {
       for (i = 0; i < bus_array.length; i++) {
         bus_array[i].setMap(null);
@@ -17,8 +19,12 @@ var selected_bus;
 				bus_array[i] = marker;
 
 				google.maps.event.addListener(marker, 'click', function () {
+          if (typeof selected_bus != 'undefined') {
+              selected_bus.setIcon('images/BusMarker.png');
+          }
           selected_bus = this;
-					getRouteURL(this);
+          selected_bus.setIcon('images/SelectedBusMarker.png');
+          getRouteURL(this);
 	        pos = this.position;
 				});
 
@@ -29,7 +35,9 @@ var selected_bus;
 		{
         console.log("Running");
 				var xmlhttp = new XMLHttpRequest();
-				xmlhttp.open('GET', "https://dl.dropbox.com/s/o5ajnzozjend26q/gtfs_data.json?dl=1", true);
+        var gtfsdb = 'https://dl.dropbox.com/s/o5ajnzozjend26q/gtfs_data.json?dl=1';
+        var gtfsstatic = 'gtfs/gtfs_data.json';
+				xmlhttp.open('GET', gtfsstatic, true);
 				xmlhttp.onreadystatechange = function() {
 					if (xmlhttp.readyState == 4) {
 						if(xmlhttp.status == 200) {
@@ -84,10 +92,23 @@ var selected_bus;
       var i = 0, k = 0;
       var trip_obj, route;
 
+			if (true) {
+				var routeslocal = 'gtfs/routes.json';
+				var tripslocal = 'gtfs/trips.json';
+				var shapeslocal = 'gtfs/shapes.json';
+			} else {
+				var routeslocal = 'https://dl.dropbox.com/s/nhu05hzsdfpkze2/routes.json?dl=1';
+				var tripslocal = 'https://dl.dropbox.com/s/p5pywu0iyeojtz2/trips.json?dl=1';
+				var shapeslocal = 'https://dl.dropbox.com/s/wsitajwapw4rgmh/shapes.json?dl=1';
+
+			}
+
+
+
       loadJSON(function(response) {
         // Parse JSON string into object
         var actual_JSON = JSON.parse(response);
-        console.log(actual_JSON[0]);
+
         while(actual_JSON[i].trip_id != bus.trip_id) {
           i++;
         }
@@ -107,8 +128,29 @@ var selected_bus;
           bus.url = url;
           openInfoBoxBus(bus);
           console.log(url);
-        }, 'https://dl.dropbox.com/s/nhu05hzsdfpkze2/routes.json?dl=1');
-      }, 'https://dl.dropbox.com/s/p5pywu0iyeojtz2/trips.json?dl=1');
+        }, routeslocal);
+
+        loadJSON(function(response) {
+          var shapes_json = JSON.parse(response);
+          var shapes_array = [];
+					var latlng_array = [];
+
+					var latlng;
+          for (var x = 0; x < shapes_json.length; x++) {
+            if (shapes_json[x].shape_id == trip_obj.shape_id) {
+              shapes_array.push(shapes_json[x]);
+							latlng_array.push({lat: shapes_json[x].shape_pt_lat, lng: shapes_json[x].shape_pt_lon});
+
+						}
+          }
+          console.log(latlng_array);
+					busPath.setMap(null);
+
+				 	busPath.setPath(latlng_array);
+				 	busPath.setMap(map);
+
+        }, shapeslocal);
+      }, tripslocal);
 
 
 

@@ -1,0 +1,419 @@
+trip {
+  trip_id: "1065865"
+}
+position {
+  latitude: 39.702576
+  longitude: -86.3099
+}
+timestamp: 1465759257
+vehicle {
+  label: "2301"
+}
+trip {
+  trip_id: "1066046"
+}
+position {
+  latitude: 39.829704
+  longitude: -86.27996
+}
+timestamp: 1465759266
+vehicle {
+  label: "2302"
+}
+trip {
+  trip_id: "1065894"
+}
+position {
+  latitude: 39.775158
+  longitude: -85.9623
+}
+timestamp: 1465759259
+vehicle {
+  label: "2307"
+}
+trip {
+  trip_id: "1066385"
+}
+position {
+  latitude: 39.73776
+  longitude: -86.12984
+}
+timestamp: 1465759268
+vehicle {
+  label: "2316"
+}
+trip {
+  trip_id: "1066047"
+}
+position {
+  latitude: 39.817814
+  longitude: -86.15689
+}
+timestamp: 1465759263
+vehicle {
+  label: "2321"
+}
+trip {
+  trip_id: "1066312"
+}
+position {
+  latitude: 39.82471
+  longitude: -86.156746
+}
+timestamp: 1465759258
+vehicle {
+  label: "1501"
+}
+trip {
+  trip_id: "1065835"
+}
+position {
+  latitude: 39.86553
+  longitude: -86.11755
+}
+timestamp: 1465759253
+vehicle {
+  label: "1502"
+}
+trip {
+  trip_id: "1065909"
+}
+position {
+  latitude: 39.771034
+  longitude: -86.13081
+}
+timestamp: 1465759276
+vehicle {
+  label: "1503"
+}
+trip {
+  trip_id: "1065989"
+}
+position {
+  latitude: 39.86374
+  longitude: -86.11744
+}
+timestamp: 1465759270
+vehicle {
+  label: "1504"
+}
+trip {
+  trip_id: "1066204"
+}
+position {
+  latitude: 39.912003
+  longitude: -86.204124
+}
+timestamp: 1465759269
+vehicle {
+  label: "1505"
+}
+trip {
+  trip_id: "1066315"
+}
+position {
+  latitude: 39.769703
+  longitude: -86.158745
+}
+timestamp: 1465759253
+vehicle {
+  label: "1506"
+}
+trip {
+  trip_id: "1066227"
+}
+position {
+  latitude: 39.774055
+  longitude: -86.16469
+}
+timestamp: 1465759269
+vehicle {
+  label: "1509"
+}
+trip {
+  trip_id: "1066071"
+}
+position {
+  latitude: 39.82382
+  longitude: -86.23457
+}
+timestamp: 1465759279
+vehicle {
+  label: "1510"
+}
+trip {
+  trip_id: "1066106"
+}
+position {
+  latitude: 39.90398
+  longitude: -86.20246
+}
+timestamp: 1465759279
+vehicle {
+  label: "1511"
+}
+trip {
+  trip_id: "1065946"
+}
+position {
+  latitude: 39.818226
+  longitude: -86.10243
+}
+timestamp: 1465759281
+vehicle {
+  label: "1512"
+}
+trip {
+  trip_id: "1066296"
+}
+position {
+  latitude: 39.82558
+  longitude: -86.08434
+}
+timestamp: 1465759259
+vehicle {
+  label: "1513"
+}
+trip {
+  trip_id: "1066252"
+}
+position {
+  latitude: 39.78028
+  longitude: -86.22597
+}
+timestamp: 1465759225
+vehicle {
+  label: "2702"
+}
+trip {
+  trip_id: "1066266"
+}
+position {
+  latitude: 39.776245
+  longitude: -86.16771
+}
+timestamp: 1465759257
+vehicle {
+  label: "2703"
+}
+trip {
+  trip_id: "1066120"
+}
+position {
+  latitude: 39.775066
+  longitude: -86.14898
+}
+timestamp: 1465759254
+vehicle {
+  label: "2704"
+}
+trip {
+  trip_id: "1066190"
+}
+position {
+  latitude: 39.84756
+  longitude: -86.13042
+}
+timestamp: 1465759254
+vehicle {
+  label: "1002"
+}
+trip {
+  trip_id: "1066148"
+}
+position {
+  latitude: 39.69337
+  longitude: -86.081375
+}
+timestamp: 1465759271
+vehicle {
+  label: "1006"
+}
+trip {
+  trip_id: "1066390"
+}
+position {
+  latitude: 39.766445
+  longitude: -86.149086
+}
+timestamp: 1465759265
+vehicle {
+  label: "1007"
+}
+trip {
+  trip_id: "1065868"
+}
+position {
+  latitude: 39.770157
+  longitude: -86.08406
+}
+timestamp: 1465759253
+vehicle {
+  label: "H1014"
+}
+trip {
+  trip_id: "1066259"
+}
+position {
+  latitude: 39.78195
+  longitude: -86.01661
+}
+timestamp: 1465759163
+vehicle {
+  label: "H1017"
+}
+trip {
+  trip_id: "1065895"
+}
+position {
+  latitude: 39.772503
+  longitude: -86.03595
+}
+timestamp: 1465759277
+vehicle {
+  label: "H1018"
+}
+trip {
+  trip_id: "1066132"
+}
+position {
+  latitude: 39.76992
+  longitude: -86.15863
+}
+timestamp: 1465759265
+vehicle {
+  label: "H1022"
+}
+trip {
+  trip_id: "1065972"
+}
+position {
+  latitude: 39.76569
+  longitude: -86.160194
+}
+timestamp: 1465759269
+vehicle {
+  label: "1401"
+}
+trip {
+  trip_id: "1066072"
+}
+position {
+  latitude: 39.76964
+  longitude: -86.1543
+}
+timestamp: 1465759275
+vehicle {
+  label: "1403"
+}
+trip {
+  trip_id: "1065851"
+}
+position {
+  latitude: 39.782753
+  longitude: -86.18908
+}
+timestamp: 1465759271
+vehicle {
+  label: "1404"
+}
+trip {
+  trip_id: "1066030"
+}
+position {
+  latitude: 39.76562
+  longitude: -86.15519
+}
+timestamp: 1465759269
+vehicle {
+  label: "1405"
+}
+trip {
+  trip_id: "1065926"
+}
+position {
+  latitude: 39.773777
+  longitude: -86.13899
+}
+timestamp: 1465759275
+vehicle {
+  label: "1406"
+}
+trip {
+  trip_id: "1066178"
+}
+position {
+  latitude: 39.906696
+  longitude: -86.06684
+}
+timestamp: 1465759256
+vehicle {
+  label: "1408"
+}
+trip {
+  trip_id: "1065952"
+}
+position {
+  latitude: 39.770084
+  longitude: -86.162224
+}
+timestamp: 1465759259
+vehicle {
+  label: "1409"
+}
+trip {
+  trip_id: "1065866"
+}
+position {
+  latitude: 39.720314
+  longitude: -86.32416
+}
+timestamp: 1465759265
+vehicle {
+  label: "1411"
+}
+trip {
+  trip_id: "1066004"
+}
+position {
+  latitude: 39.813835
+  longitude: -86.14501
+}
+timestamp: 1465759275
+vehicle {
+  label: "1413"
+}
+trip {
+  trip_id: "1065867"
+}
+position {
+  latitude: 39.76509
+  longitude: -86.1707
+}
+timestamp: 1465759255
+vehicle {
+  label: "H1302"
+}
+trip {
+  trip_id: "1065897"
+}
+position {
+  latitude: 39.75507
+  longitude: -86.242836
+}
+timestamp: 1465759280
+vehicle {
+  label: "H1303"
+}
+trip {
+  trip_id: "1065896"
+}
+position {
+  latitude: 39.769836
+  longitude: -86.153366
+}
+timestamp: 1465759274
+vehicle {
+  label: "H1304"
+}
+
