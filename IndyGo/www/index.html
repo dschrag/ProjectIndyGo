@@ -46,6 +46,12 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 <!-- One -->
 
 <section id="one">
+	<div id="iframediv" class="container 75%" style="display: none;">
+		<div id="closeframe"><button type="button" onclick="closeIframe()">Click Me!</button><br></div>
+			<div id="content" style="height: 100vh; width: 100%; position: absolute; margin: auto;">
+					<iframe id="routebrowser" width="100%" height="100%" frameborder="0" ondblclick="closeIframe()"></iframe>
+			</div>
+	</div>
     <div id="mapContainer" style="background-color: rgba(0,46,97, 100); height: 100vh">
         <input id="origin-input" class="controls" type="text" placeholder="Enter an origin location">
 
@@ -148,15 +154,17 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 
 		if (bus_or_bike == 0) {
 			livebus = readDropbox();
+			var centerControlDiv = document.createElement('div');
+			var centerControl = new CenterControl(centerControlDiv, map);
+
+			centerControlDiv.index = 1;
+			map.controls[google.maps.ControlPosition.RIGHT].push(centerControlDiv);
+
+			//getRouteURL(null, 'gtfs/trips.json');
 		} else if (bus_or_bike == 1) {
 			var stats = getBikeStations(map);
 		}
 
-		var centerControlDiv = document.createElement('div');
-    var centerControl = new CenterControl(centerControlDiv, map);
-
-    centerControlDiv.index = 1;
-    map.controls[google.maps.ControlPosition.RIGHT].push(centerControlDiv);
 
 		origin_input = document.getElementById('origin-input');
 		destination_input = document.getElementById('destination-input');

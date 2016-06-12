@@ -1,4 +1,5 @@
 
+var selected_bus;
 		function createBusPins(map, livebus) {
       for (i = 0; i < bus_array.length; i++) {
         bus_array[i].setMap(null);
@@ -9,15 +10,16 @@
 					position: {lat: Number(livebus[i].pos.lat), lng: Number(livebus[i].pos.lng)},
 					map: map,
 					title: livebus[i].vehicle,
-					icon: 'images/BusMarker.png'
+					icon: 'images/BusMarker.png',
+          trip_id: livebus[i].trip_id
 				});
-                console.log(marker.icon);
+
 				bus_array[i] = marker;
 
 				google.maps.event.addListener(marker, 'click', function () {
-					getBikeStatus(this);
-	                openInfoBox(this.title, this.addr, this.title, null, null);
-	                pos = this.position;
+          selected_bus = this;
+					getRouteURL(this);
+	        pos = this.position;
 				});
 
 			}
@@ -75,3 +77,107 @@
 		      console.log(trip_array);
 		      return(trip_array);
 		}
+
+    function getRouteURL(bus) {
+      console.log(bus.trip_id);
+
+      var i = 0, k = 0;
+      var trip_obj, route;
+
+      loadJSON(function(response) {
+        // Parse JSON string into object
+        var actual_JSON = JSON.parse(response);
+        console.log(actual_JSON[0]);
+        while(actual_JSON[i].trip_id != bus.trip_id) {
+          i++;
+        }
+
+        trip_obj = actual_JSON[i];
+        console.log(actual_JSON[i]);
+
+        loadJSON(function(response) {
+          var route_json = JSON.parse(response);
+          while(route_json[k].route_id != trip_obj.route_id) {
+            k++;
+          }
+          route = route_json[k];
+          console.log(route_json[k]);
+          var url = 'http://www.indygo.net/route/' + route.route_short_name +
+                    "-" + route.route_long_name.replace(/ /g, '-').replace(/\//, '-') + '/';
+          bus.url = url;
+          openInfoBoxBus(bus);
+          console.log(url);
+        }, 'https://dl.dropbox.com/s/nhu05hzsdfpkze2/routes.json?dl=1');
+      }, 'https://dl.dropbox.com/s/p5pywu0iyeojtz2/trips.json?dl=1');
+
+
+
+
+    }
+
+    function loadJSON(callback, fd) {
+
+       var xobj = new XMLHttpRequest();
+       xobj.overrideMimeType("application/json");
+       xobj.open('GET', fd, true);
+       xobj.onreadystatechange = function () {
+             if (xobj.readyState == 4 && xobj.status == "200") {
+               // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+               callback(xobj.responseText);
+             }
+       };
+       xobj.send(null);
+    }
+
+    function openInfoBoxBus(bus) {
+        document.getElementById("mapContainer").style.height= '65vh';
+        document.getElementById("map").style.height= '58%';
+
+        document.getElementById("infoBx").innerHTML = "IndyGo Bus:<div class='tableTitle'>"+bus.title+"</div>"+"<br><span id='dist'>N/A</span> Miles Away<br><div class='buttons'><pre><span onclick='closeInfoBox()'>Close</span>                            <span onclick='openRouteSite()'>Directions</span></pre></div>";
+
+        infoBoxDirections(false);
+
+    }
+
+    function openRouteSite() {
+      console.log(selected_bus.url);
+      document.getElementById("iframediv").style.display = 'inline';
+      document.getElementById("routebrowser").src = selected_bus.url;
+
+      function closeControl(controlDiv, map) {
+
+          // Set CSS for the control border.
+          var controlUI = document.createElement('div');
+          //controlUI.style.backgroundColor = '#fff';
+          controlUI.style.cursor = 'pointer';
+  				controlUI.style.backgroundImage = 'url(images/Close.png)';
+          // controlUI.style.backgroundColor = '#002E61';
+  				controlUI.style.width = '61px';
+  				controlUI.style.height = '55.5px';
+          controlUI.style.marginTop = '65px';
+          controlUI.title = 'Click to recenter the map';
+          controlDiv.appendChild(controlUI);
+
+          // Setup the click event listeners: simply set the map to Chicago.
+          controlUI.addEventListener('click', function() {
+  					console.log("Clicked!");
+          	closeIframe();
+          });
+
+        }
+
+        var closeControlDiv = document.createElement('div');
+        var closeControl = new closeControl(closeControlDiv, map);
+
+        closeControlDiv.index = 1;
+        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(closeControlDiv);
+    }
+
+    function closeIframe() {
+      document.getElementById("mapContainer").style.height= '100vh';
+      document.getElementById("map").style.height= '72%';
+
+      var frame = document.getElementById("iframediv").style.display = 'none';
+      map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].clear();
+      frame.parentNode.removeChild(frame);
+    }
