@@ -132,7 +132,6 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 
         // Setup the click event listeners: simply set the map to Chicago.
         controlUI.addEventListener('click', function() {
-					console.log("Clicked!");
         	livebus = readDropbox();
         });
 
@@ -310,6 +309,8 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
         document.getElementById("infoBx").innerHTML = "Indy Pacers Bikeshare Station:<div class='tableTitle'>"+title+"</div>"+addr+"<br><span id='dist'>N/A</span> Miles Away<br><div class='buttons'><pre><span onclick='closeInfoBox()'>Close</span>                            <span onclick='infoBoxDirections(true)'>Directions</span></pre></div>";
         infoBoxDirections(false);
 
+        document.getElementById("tLeft1").style.display = 'table-cell';
+				document.getElementById("tLeft2").style.display = 'table-cell';
         document.getElementById("tLeft1").innerHTML = "<span style='font-size:3em'>"+bikes+"</span><br><span class='bikeDockTxt'>Bikes</span>";
         document.getElementById("tLeft2").innerHTML = "<span style='font-size:3em'>"+docks+"</span><br><span class='bikeDockTxt'>Docks</span>";
     }

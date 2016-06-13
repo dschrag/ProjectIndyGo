@@ -30,12 +30,16 @@ function createBikePins(map, stations) {
         station_array[i] = marker;
 
         google.maps.event.addListener(marker, 'click', function () {
+          if (typeof clickedStation != 'undefined') {
+            clickedStation.setIcon('images/BikeMarker.png');
+          }
             getBikeStatus(this);
             map.panTo(this.position);
             map.setCenter(this.position);
             openInfoBox(this.getTitle(), this.addr, this.bikes_avail, this.docks_avail);
             pos = this.position;
-            clickedStation = this.i;
+            clickedStation = this;
+            clickedStation.setIcon('images/SelectedBikeMarker.png');
         });
 
     }

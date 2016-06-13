@@ -37,7 +37,7 @@ var selected_bus;
 				var xmlhttp = new XMLHttpRequest();
         var gtfsdb = 'https://dl.dropbox.com/s/o5ajnzozjend26q/gtfs_data.json?dl=1';
         var gtfsstatic = 'gtfs/gtfs_data.json';
-				xmlhttp.open('GET', gtfsstatic, true);
+				xmlhttp.open('GET', gtfsdb, true);
 				xmlhttp.onreadystatechange = function() {
 					if (xmlhttp.readyState == 4) {
 						if(xmlhttp.status == 200) {
@@ -126,6 +126,8 @@ var selected_bus;
           var url = 'http://www.indygo.net/route/' + route.route_short_name +
                     "-" + route.route_long_name.replace(/ /g, '-').replace(/\//, '-') + '/';
           bus.url = url;
+					bus.name = route.route_short_name +
+                    " - " + route.route_long_name;
           openInfoBoxBus(bus);
           console.log(url);
         }, routeslocal);
@@ -166,7 +168,9 @@ var selected_bus;
              if (xobj.readyState == 4 && xobj.status == "200") {
                // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
                callback(xobj.responseText);
-             }
+             } else {
+			          // alert("Error" + xobj.statusText + xobj.responseText);
+			        }
        };
        xobj.send(null);
     }
@@ -174,8 +178,9 @@ var selected_bus;
     function openInfoBoxBus(bus) {
         document.getElementById("mapContainer").style.height= '65vh';
         document.getElementById("map").style.height= '58%';
-
-        document.getElementById("infoBx").innerHTML = "IndyGo Bus:<div class='tableTitle'>"+bus.title+"</div>"+"<br><span id='dist'>N/A</span> Miles Away<br><div class='buttons'><pre><span onclick='closeInfoBox()'>Close</span>                            <span onclick='openRouteSite()'>Directions</span></pre></div>";
+				document.getElementById("tLeft1").style.display = 'none';
+				document.getElementById("tLeft2").style.display = 'none';
+        document.getElementById("infoBx").innerHTML = "IndyGo Bus:<div class='tableTitle'>"+bus.name+"</div>"+"<br><span id='dist'>N/A</span> Miles Away<br><div class='buttons'><pre><span onclick='closeInfoBox()'>Close</span>                            <span onclick='openRouteSite()'>Route Webpage</span></pre></div>";
 
         infoBoxDirections(false);
 
