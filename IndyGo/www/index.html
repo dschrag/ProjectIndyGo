@@ -342,9 +342,16 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
                 // Search for current location placeId
                 geocodeLatLng(geocoder, map, org, 'origin-input');
 
+                var dest;
+                if (typeof clickedStation != undefined) {
+                  dest = clickedStation.position;
+                } else {
+                  dest = {'placeId': destination_place_id};
+                }
+
                 directionsService.route({
                     origin: org,
-                    destination: {'placeId': destination_place_id},
+                    destination: dest,
                     travelMode: travel_mode
                 }, function(response, status) {
                     if (status === google.maps.DirectionsStatus.OK) {
